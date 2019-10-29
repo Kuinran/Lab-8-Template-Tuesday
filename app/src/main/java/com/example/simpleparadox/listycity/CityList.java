@@ -23,12 +23,12 @@ public class CityList {
     }
 
     public void addMany(ArrayList<City> newCities) {
-        //for (City city: newCities) {
-        //    if (hasCity(city)) {
-        //        throw new IllegalArgumentException();
-        //    }
-        //    cities.add(city);
-        //}
+        for (City city: newCities) {
+            if (hasCity(city)) {
+                throw new IllegalArgumentException();
+            }
+            cities.add(city);
+        }
     }
 
     /**
