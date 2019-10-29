@@ -3,6 +3,8 @@ package com.example.simpleparadox.listycity;
 import org.junit.jupiter.api.Test;
 
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CityListTest {
@@ -92,5 +94,21 @@ class CityListTest {
         CityList cityList = mockCityList();
 
         assertEquals(1, cityList.countCities());
+    }
+
+    @Test
+    void testAddAlternate() {
+        CityList cityList = mockCityList();
+
+        assertEquals(1, cityList.countCities());
+
+        ArrayList<City> cities = new ArrayList<> ();
+        cities.add(new City("Vancouver", "British Columbia"));
+        cities.add(new City("Regina", "Saskatchewan"));
+        cityList.addMany(cities);
+
+        assertEquals(3, cityList.countCities());
+        assertTrue(cityList.hasCity(new City("Vancouver", "British Columbia")));
+        assertTrue(cityList.hasCity(new City("Regina", "Saskatchewan")));
     }
 }
